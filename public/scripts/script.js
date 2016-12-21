@@ -1,7 +1,14 @@
 var myApp = angular.module('myApp', []);
 
 myApp.controller('mainController', ['$scope', '$http', function($scope, $http){
+  var key;
   $scope.apiHit = function(){
+    $http({
+      method: 'GET',
+      url: '/key'
+    }).then(function(response){
+      console.log(response);
+    });
     $http({
       method: 'GET',
       url: 'https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion?champData=image&api_key='

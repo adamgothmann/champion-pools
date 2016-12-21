@@ -5,12 +5,18 @@ var bodyParser = require('body-parser');
 var pg = require('pg');
 var urlencodedParser = bodyParser.urlencoded({extended: false});
 
+require('dotenv').config();
+
 app.use(bodyParser.json());
 app.use(express.static('public'));
 
 app.get('/', function(req, res){
   console.log('base url');
   res.sendFile(path.resolve('public/views/index.html'));
+});
+
+app.get('key', function(req, res){
+  res.sendFile(process.env.RIOT_KEY);
 });
 
 app.set('port', process.env.PORT || 8080);
