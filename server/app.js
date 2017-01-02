@@ -15,8 +15,11 @@ app.get('/', function(req, res){
   res.sendFile(path.resolve('public/views/index.html'));
 });
 
-app.get('key', function(req, res){
-  res.sendFile(process.env.RIOT_KEY);
+var env = process.env.RIOT_KEY;
+
+app.get('/key', function(req, res){
+  var env = process.env.RIOT_KEY;
+  res.json(env);
 });
 
 app.set('port', process.env.PORT || 8080);

@@ -7,11 +7,12 @@ myApp.controller('mainController', ['$scope', '$http', function($scope, $http){
       method: 'GET',
       url: '/key'
     }).then(function(response){
-      console.log(response);
+      key = response.data;
+      console.log(key);
     });
     $http({
       method: 'GET',
-      url: 'https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion?champData=image&api_key='
+      url: 'https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion?champData=image&api_key=' + key + ''
     }).then(function(response){
       $scope.champions = response.data.data;
       console.log($scope.champions);
