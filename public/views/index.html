@@ -8,8 +8,9 @@
   </head>
   <body ng-controller="mainController">
     <h2>champion pools</h2>
-    <p ng-repeat="champion in champions">
-      {{champion.name}}
-    </p>
+    <div ng-repeat="champion in champions">
+    <p>{{champion.name}}</p>
+    <img ng-src="{{champion.image.sprite}}" alt="" />
+    </div>
   </body>
 </html>
