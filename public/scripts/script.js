@@ -11,9 +11,11 @@ myApp.controller('mainController', ['$scope', '$http', function($scope, $http){
       console.log(key);
       $http({
         method: 'GET',
-        url: 'https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion?champData=image&api_key=' + key + ''
+        // url: 'https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion?champData=image&api_key=' + key + ''
+        url: 'https://ddragon.leagueoflegends.com/cdn/5.14.1/img/champion/Teemo.png'
       }).then(function(response){
-        $scope.champions = response.data.data;
+        console.log(response.data);
+        $scope.champions = response.data;
         console.log($scope.champions);
       });
     });
